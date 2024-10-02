@@ -1,59 +1,82 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { Image, StyleSheet, Platform, View } from "react-native";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import Button from "@/components/button1"; // Make sure the path is correct
 
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: "#A4B4B9FF", dark: "#1D3D47" }}
       headerImage={
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require("@/assets/images/senate22.jpg")}
           style={styles.reactLogo}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+      }
+    >
+      <View style={styles.titleContainer}>
+        <ThemedText type="title">Welcome!!!!!</ThemedText>
+      </View>
+      <View style={styles.portal}>
+        <View style={styles.stepContainer}>
+          <ThemedText type="subtitle">ABU Site</ThemedText>
+          <ThemedText>
+            <ThemedText type="defaultSemiBold">Access ABU site</ThemedText>
+          </ThemedText>
+        </View>
+        <View>
+          <Button title="Open ABU Site" uri="https://abu.edu.ng/" />
+        </View>
+      </View>
+
+      {/* Passing URLs to buttons */}
+
+      <View style={styles.portal}>
+        <View style={styles.stepContainer}>
+          <ThemedText type="subtitle">ABU Student Portal</ThemedText>
+          <ThemedText>
+            <ThemedText type="defaultSemiBold">
+              Access ABU Student Portal
+            </ThemedText>
+          </ThemedText>
+        </View>
+        <View>
+          <Button title="Open Portal" uri="https://portal.abu.edu.ng/" />
+        </View>
+      </View>
+
+      <View style={styles.portal}>
+        <View style={styles.stepContainer}>
+          <ThemedText type="subtitle">ABU Portal</ThemedText>
+          <ThemedText>
+            <ThemedText type="defaultSemiBold">Access ABU Portal</ThemedText>
+          </ThemedText>
+        </View>
+        <View>
+          <Button title="Open Portal" uri="https://www.google.com" />
+        </View>
+      </View>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  portal: {
+    backgroundColor: "#A4B4B9FF",
+    borderRadius: 10,
+    alignItems: "center",
+    height: 150,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -61,10 +84,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
+    height: 250,
+    width: 395,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });
